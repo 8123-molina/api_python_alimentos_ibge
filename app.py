@@ -10,6 +10,15 @@ mydb = mysql.connector.connect(
 app = Flask(__name__)
 my_cursor = mydb.cursor()
 
+
+# Tets de conexao da API
+@app.route('/alimentos/doc', methods=['GET'])
+def teste_conexao():
+    return jsonify(
+        mensagem='Api encontra-se online',
+    )
+
+
 # Consultar por descrição alimento
 @app.route('/alimentos/pesquisar/<string:text>', methods=['GET'])
 def pesquisar_alimentos(text):
@@ -87,7 +96,7 @@ def obter_alimento_to_id(id):
 
 # Consultar modo preparo (id)
 @app.route('/alimentos/<int:id>', methods=['GET'])
-def obter_alimento_to_id(id):
+def obter_modo_preparo_id(id):
     sql = f"SELECT * FROM ibge_alimentos where descricao LIKE ('%{id}%')"
     my_cursor.execute(sql)
     res_alimentos = my_cursor.fetchall()
