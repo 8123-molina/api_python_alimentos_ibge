@@ -21,9 +21,9 @@ def teste_conexao():
 
 # Tets de conexao da API
 @app.route('/api/v1/doc', methods=['GET'])
-def teste_conexao():
+def docuemntacao():
     return jsonify(
-        mensagem='Api encontra-se online para verificar a documentação acesse /doc',
+        mensagem='Aqui ficara a view de documentação',
         
     )
 
